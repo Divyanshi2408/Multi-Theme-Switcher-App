@@ -1,12 +1,29 @@
-# React + Vite
+# 🌗 Multi-Theme Switcher App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive React + TypeScript web application that demonstrates a fully functional **theme switcher** with three distinct UI themes. It uses Context API for global theme management, Tailwind CSS for styling, and React Router for multi-page support.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🌈 **Three Themes**:
+  - **Theme 1 (Minimal)** – Light background, sans-serif font
+  - **Theme 2 (Dark)** – Dark mode with sidebar-style layout and serif font
+  - **Theme 3 (Colorful)** – Playful, card-based UI with Google Pacifico font
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+
+- ⚛️ React + TypeScript
+- 🌀 Tailwind CSS
+- 🌐 React Router v6
+- 📡 Axios
+- 📦 FakeStore API
+- 🧠 Context API
+- 💾 localStorage
+- 🎨 CSS Variables
+
+---
+
+## 📁 Folder Structure
+
