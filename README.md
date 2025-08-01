@@ -14,16 +14,28 @@ A responsive React + TypeScript web application that demonstrates a fully functi
 
 ## 🛠️ Tech Stack
 
-- ⚛️ React + TypeScript
-- 🌀 Tailwind CSS
-- 🌐 React Router v6
-- 📡 Axios
-- 📦 FakeStore API
-- 🧠 Context API
-- 💾 localStorage
-- 🎨 CSS Variables
+- React + TypeScript
+- Tailwind CSS
+- React Router v6
+- Axios
+- FakeStore API
+- Context API
+- localStorage
+- CSS Variables
 
 ---
 
 ## 📁 Folder Structure
 
+```
+src/
+├── assets/ # (Optional) Images, fonts
+├── components/ # Reusable UI (Header, etc.)
+├── context/ # ThemeContext using Context API
+├── pages/ # Home, About, Contact
+├── routes/ # React Router setup
+├── themes/ # CSS variables for themes
+├── App.tsx # Main layout
+├── main.tsx # Entry point
+└── index.css # Tailwind + theme CSS
+```
