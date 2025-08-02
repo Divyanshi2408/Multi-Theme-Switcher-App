@@ -18,7 +18,14 @@ export default function Home() {
   }, []);
 
   return (
-    <section className="pt-24 px-4 sm:px-6 lg:px-8 max-w-screen-xl mx-auto">
+    <section
+      className="pt-24 px-4 sm:px-6 lg:px-8 max-w-screen-xl mx-auto transition-all"
+      style={{
+        backgroundColor: "var(--bg)",
+        color: "var(--text)",
+        fontFamily: "var(--font)",
+      }}
+    >
       <h1 className="text-4xl font-bold mb-4">Welcome to the Home Page</h1>
       <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
         Explore a few products fetched from Fake Store API.
@@ -34,12 +41,16 @@ export default function Home() {
             key={item.id}
             className="card rounded-xl p-5 shadow-md hover:shadow-lg transition-all"
           >
-            <img
-              src={item.image}
-              alt={item.title}
-              className="h-48 w-full object-contain mb-4"
-            />
-            <h2 className="text-lg font-semibold mb-2">{item.title}</h2>
+            {/* Image Wrapper to fix white background issue */}
+            <div className="bg-white dark:bg-gray-800 p-3 rounded-md">
+              <img
+                src={item.image}
+                alt={item.title}
+                className="h-48 w-full object-contain mx-auto border border-gray-200 dark:border-gray-700 rounded"
+              />
+            </div>
+
+            <h2 className="text-lg font-semibold mt-4 mb-2">{item.title}</h2>
             <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
               ₹{item.price}
             </p>
