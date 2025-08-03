@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useTheme } from "../context/ThemeContext";
 import { Link, useLocation } from "react-router-dom";
 import clsx from "clsx";
+import { Menu, X } from "lucide-react"; // icon library
 
 export const Header = () => {
   const { theme, setTheme } = useTheme();
   const location = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   const navLinks = [
     { path: "/", label: "Home" },
@@ -28,9 +30,20 @@ export const Header = () => {
           MultiTheme App
         </Link>
 
-        {/* Nav + Theme */}
-        <div className="flex items-center gap-6">
-          <nav className="hidden sm:flex gap-4">
+        {/* Hamburger Icon (mobile only) */}
+        <div className="sm:hidden">
+          <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} aria-label="Toggle menu">
+            {mobileMenuOpen ? (
+              <X size={28} style={{ color: "var(--nav-text)" }} />
+            ) : (
+              <Menu size={28} style={{ color: "var(--nav-text)" }} />
+            )}
+          </button>
+        </div>
+
+        {/* Nav + Theme (desktop) */}
+        <div className="hidden sm:flex items-center gap-6">
+          <nav className="flex gap-4">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -46,7 +59,6 @@ export const Header = () => {
             ))}
           </nav>
 
-          {/* Theme Switcher */}
           <select
             value={theme}
             onChange={(e) => setTheme(e.target.value as any)}
@@ -65,6 +77,41 @@ export const Header = () => {
           </select>
         </div>
       </div>
+
+      {/* Mobile Menu (below header) */}
+      {mobileMenuOpen && (
+        <div className="sm:hidden px-4 pb-4 space-y-4 transition-all">
+          {navLinks.map((link) => (
+            <Link
+              key={link.path}
+              to={link.path}
+              className="block text-lg font-medium"
+              style={{ color: "var(--nav-text)" }}
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {link.label}
+            </Link>
+          ))}
+
+          <select
+            value={theme}
+            onChange={(e) => setTheme(e.target.value as any)}
+            style={{
+              backgroundColor: "var(--dropdown-bg)",
+              color: "var(--dropdown-text)",
+              border: "1px solid #ccc",
+              padding: "0.5rem",
+              borderRadius: "0.375rem",
+              width: "100%",
+              transition: "all 0.3s ease",
+            }}
+          >
+            <option value="theme1">Theme 1 - Minimal</option>
+            <option value="theme2">Theme 2 - Dark</option>
+            <option value="theme3">Theme 3 - Colorful</option>
+          </select>
+        </div>
+      )}
     </header>
   );
 };
