@@ -26,32 +26,35 @@ export default function Home() {
         fontFamily: "var(--font)",
       }}
     >
-      <h1 className="text-4xl font-bold mb-4">Welcome to the Home Page</h1>
-      <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-        Explore a few products fetched from Fake Store API.
+      <h1 className="text-4xl sm:text-5xl font-bold mb-4">
+        Welcome to the Home Page
+      </h1>
+
+      <p className="text-lg sm:text-xl mb-6 leading-relaxed">
+        Explore a few products fetched from the Fake Store API.
       </p>
 
       <button className="btn hover:opacity-90 active:scale-95">
         Click Me
       </button>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-10">
         {products.map((item) => (
           <div
             key={item.id}
             className="card rounded-xl p-5 shadow-md hover:shadow-lg transition-all"
           >
-            {/* Image Wrapper to fix white background issue */}
-            <div className="bg-white dark:bg-gray-800 p-3 rounded-md">
+            {/* Fix white background image issue */}
+            <div className="p-3 rounded-md" style={{ backgroundColor: "var(--card-bg)" }}>
               <img
                 src={item.image}
                 alt={item.title}
-                className="h-48 w-full object-contain mx-auto border border-gray-200 dark:border-gray-700 rounded"
+                className="h-48 w-full object-contain mx-auto border border-gray-300 dark:border-gray-700 rounded"
               />
             </div>
 
             <h2 className="text-lg font-semibold mt-4 mb-2">{item.title}</h2>
-            <p className="text-sm font-medium text-gray-700 dark:text-gray-300">
+            <p className="text-sm font-medium" style={{ color: "var(--text)" }}>
               ₹{item.price}
             </p>
           </div>
