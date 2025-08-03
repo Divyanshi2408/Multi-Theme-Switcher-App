@@ -70,8 +70,3 @@ npm install
 npm run dev
 ```
 The app will be available at http://localhost:5173
-
-
-Build Command: npm run build
-
-Output Directory: dist
